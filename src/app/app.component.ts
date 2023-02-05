@@ -6,5 +6,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'talpisign';
+  name: string = '';
+  phone: string = '';
+  details: string = '';
+
+  get to(): string {
+    return 'talpis4democracy@gmail.com';
+  }
+
+  get subject(): string {
+    return encodeURIComponent(`[SIGN] ${this.name}`);
+  }
+
+  get body(): string {
+    return encodeURIComponent(`מילוי טופס זה מהווה אישור חתימה על מכתב בוגרי ובוגרות תלפיות המתנגד לרפורמה המשפטית בתצורתה הנוכחית. הנני מאשר את חתימתי.\n\n${this.name}\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
+  }
+
+  get gmailurl(): string {
+    return `https://mail.google.com/mail/?view=cm&fs=1&to=${this.to}&su=${this.subject}&body=${this.body}`;
+  }
+  
+  get emailurl(): string {
+    return `mailto:${this.to}?subject=${this.subject}&body=${this.body}`;
+  }
+
+  ready() {
+    return this.name.length > 5 && this.phone.length > 7;
+  }
 }
