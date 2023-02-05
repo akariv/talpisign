@@ -7,6 +7,10 @@
   <label for="phone">מספר טלפון</label>
   <input type="text" [(ngModel)]="phone" name="phone" placeholder="מספר טלפון" required>  
 </div>
+<div class='section h'>
+  <input type="checkbox" [(ngModel)]="approved" required>
+  <p>{{legalese}}</p>
+</div>
 <!-- <div class='section'>
   <label for="details">מעניין אותך </label>
   <input type="text" [(ngModel)]="details" name="details" placeholder="מספר טלפון" required>  

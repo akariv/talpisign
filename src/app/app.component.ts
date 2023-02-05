@@ -8,7 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name: string = '';
   phone: string = '';
-  details: string = '';
+  approved = false;
+
+  get legalese(): string {
+    return 'מילוי טופס זה מהווה אישור חתימה על מכתב בוגרי ובוגרות תלפיות המתנגד לרפורמה המשפטית בתצורתה הנוכחית.';
+  }
 
   get to(): string {
     return 'talpis4democracy@gmail.com';
@@ -19,7 +23,7 @@ export class AppComponent {
   }
 
   get body(): string {
-    return encodeURIComponent(`מילוי טופס זה מהווה אישור חתימה על מכתב בוגרי ובוגרות תלפיות המתנגד לרפורמה המשפטית בתצורתה הנוכחית. הנני מאשר את חתימתי.\n\n${this.name}\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
+    return encodeURIComponent(`${this.legalese} הנני מאשר את חתימתי.\n\n${this.name}\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
   }
 
   get gmailurl(): string {
@@ -31,6 +35,6 @@ export class AppComponent {
   }
 
   ready() {
-    return this.name.length > 5 && this.phone.length > 7;
+    return this.name.length > 5 && this.phone.length > 7 && this.approved;
   }
 }
