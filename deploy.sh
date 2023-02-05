@@ -3,7 +3,7 @@ git checkout main && \
 (git branch -D dist || true) && \
 git checkout -b dist && \
 rm .gitignore && \
-ng build && \
+npm run build && \
 cp dist/talpisign/index.html dist/talpisign/404.html && \
 cp CNAME dist/talpisign/ || true && \
 git add dist/talpisign && \
