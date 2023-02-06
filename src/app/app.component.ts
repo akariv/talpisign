@@ -10,9 +10,14 @@ export class AppComponent {
   phone: string = '';
   year: string = '';
   approved = false;
+  approved2 = false;
 
   get legalese(): string {
-    return 'מילוי טופס זה מהווה אישור חתימה על מכתב בוגרי ובוגרות תלפיות המתנגד לרפורמה המשפטית בתצורתה הנוכחית.';
+    return 'הנני מאשר/ת את חתימתי על מכתב בוגרי ובוגרות תלפיות המתנגד לרפורמה המשפטית בתצורתה הנוכחית.';
+  }
+
+  get legalese2(): string {
+    return 'הנני מאשר/ת שהשתחררתי משירות קבע.';
   }
 
   get to(): string {
@@ -24,7 +29,7 @@ export class AppComponent {
   }
 
   get body(): string {
-    return encodeURIComponent(`${this.legalese} הנני מאשר את חתימתי.\n\n${this.name} (${this.year})\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
+    return encodeURIComponent(`${this.legalese}\n\n${this.legalese2}\n\n${this.name} (${this.year})\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
   }
 
   get gmailurl(): string {
@@ -36,6 +41,6 @@ export class AppComponent {
   }
 
   ready() {
-    return this.name.length > 5 && this.phone.length > 7 && this.approved;
+    return this.name.length > 5 && this.phone.length > 7 && this.approved && this.approved2;
   }
 }
