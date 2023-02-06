@@ -12,6 +12,18 @@
     }
 }
 
+.mobile({
+    ::ng-deep .layout-desktop {
+        display: none !important;
+    }
+});
+
+.desktop({
+    ::ng-deep .layout-mobile {
+        display: none !important;
+    }
+});
+
 :host {
     display: flex;
     height: 100%;
