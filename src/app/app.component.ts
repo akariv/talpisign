@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name: string = '';
   phone: string = '';
+  year: string = '';
   approved = false;
 
   get legalese(): string {
@@ -23,7 +24,7 @@ export class AppComponent {
   }
 
   get body(): string {
-    return encodeURIComponent(`${this.legalese} הנני מאשר את חתימתי.\n\n${this.name}\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
+    return encodeURIComponent(`${this.legalese} הנני מאשר את חתימתי.\n\n${this.name} (${this.year})\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
   }
 
   get gmailurl(): string {
