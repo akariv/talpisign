@@ -80,10 +80,12 @@
         align-items: center;
         gap: 16px;
 
-        visibility: hidden;
+        filter: blur(3px) grayscale(100%);
+        pointer-events: none;
 
         &.visible {
-            visibility: visible;
+            filter: none;
+            pointer-events: all;
         }
 
         a {
