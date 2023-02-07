@@ -11,6 +11,7 @@ export class AppComponent {
   year: string = '';
   approved = false;
   approved2 = false;
+  serving = false;
 
   get legalese(): string {
     return 'אני מאשר/ת את חתימתי על מכתב בוגרי ובוגרות תלפיות המתנגד לרפורמה המשפטית בתצורתה הנוכחית.';
@@ -20,16 +21,20 @@ export class AppComponent {
     return 'אני מאשר/ת שהשתחררתי משירות קבע.';
   }
 
+  get servingLegalese(): string {
+    return 'אני משרת/ת פעיל/ה במילואים (במקרה זה שמך יופיע בראשי תיבות)';
+  }
+
   get to(): string {
     return 'talpis4democracy@gmail.com';
   }
 
   get subject(): string {
-    return encodeURIComponent(`[SIGN] ${this.name}`);
+    return encodeURIComponent(`[SIGN] ${this.name} (${this.year})`);
   }
 
   get body(): string {
-    return encodeURIComponent(`${this.legalese}\n\n${this.legalese2}\n\n${this.name} (${this.year})\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
+    return encodeURIComponent(`${this.legalese}\n\n${this.legalese2}\n\n${this.serving ? 'בשירות מילואים פעיל\n\n' : ''}${this.name} (${this.year})\n${this.phone}\n\nאפשר להוסיף למייל מידע נוסף שתרצו לספר לנו.`);
   }
 
   get gmailurl(): string {
