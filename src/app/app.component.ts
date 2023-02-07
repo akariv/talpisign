@@ -46,6 +46,6 @@ export class AppComponent {
   }
 
   ready() {
-    return this.name.length > 5 && this.phone.length > 7 && this.approved && this.approved2 && this.year.length > 0;
+    return this.name.length >= 5 && this.phone.length > 7 && this.approved && this.approved2 && this.year.length > 0;
   }
 }
